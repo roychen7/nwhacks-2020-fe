@@ -1,6 +1,7 @@
 import React from 'react';
 // import PieChart from './PieChart'
 import Grid from '@material-ui/core/Grid';
+import Scrubber from '../components/Scrubber';
 
 import {
     PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend,
@@ -32,12 +33,9 @@ import {
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-  
-//   const data02 = [
-//     { name: 'Group A', value: 2400 }, { name: 'Group B', value: 4567 },
-//     { name: 'Group C', value: 1398 }, { name: 'Group D', value: 9800 },
-//     { name: 'Group E', value: 3908 }, { name: 'Group F', value: 4800 },
-//   ];
+  const scrubberMockData = {
+    maxTime: '27:22',
+  }
   
   
 class SessionStatistics extends React.Component {
@@ -49,6 +47,9 @@ class SessionStatistics extends React.Component {
     }
 
     render() {
+
+      const { maxTime } = scrubberMockData;
+
         return (
             <div>
             <Grid container>
@@ -83,6 +84,9 @@ class SessionStatistics extends React.Component {
                     <Bar dataKey="pv" fill="#8884d8" />
                     <Bar dataKey="uv" fill="#82ca9d" />
                 </BarChart>   
+                </Grid>
+                <Grid xs={6}>
+                  <Scrubber maxTime={maxTime}/>
                 </Grid>
             </Grid>
             </div>

@@ -8,6 +8,7 @@ import './App.css';
 import Home from './pages/Home';
 import PatientsDrawer from './components/PatientsDrawer';
 import PermanentDrawerLeft from './pages/PermanentDrawerLeft';
+import Scrubber from './components/Scrubber';
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" component={PermanentDrawerLeft}/>
+          <Route exact path="/" component={PermanentDrawerLeft}/>
           <Route path="/home" component={Home}/>
+          <Route path="/slider" component={Scrubber}/>
         </Switch>
       </div>
     </BrowserRouter>

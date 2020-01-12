@@ -17,6 +17,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
 import HomePage from './HomePage'
 import SessionStatistics from './SessionStatistics';
+import Scrubber from '../components/Scrubber';
 const drawerWidth = 240;
 
 const useStyles = theme => ({
@@ -58,21 +59,6 @@ const sessions = [{key: 1, sessions: ['Session 1', 'Session 2']},
 {key: 3, sessions: ['Session 3']},
 {key: 4, sessions: ['Session 4']}];
 
-// patient = {
-//   id: patientID
-// }
-
-// session = {
-//   id: sessionID
-//   stats: //todo
-// }
-
-
-// opened is one of:
-// Home
-// Patients
-// Sessions
-
 class PermanentDrawerLeft extends React.Component {
   constructor(props) {
     super(props);
@@ -80,7 +66,8 @@ class PermanentDrawerLeft extends React.Component {
       id: 1,
       open: false,
       setOpen: false,
-      opened: 'Home',
+      opened: 'Sessions',
+      selected: 'home',
       currOpenedSession: null,
     }
     // patients and session array objects 
@@ -128,6 +115,10 @@ class PermanentDrawerLeft extends React.Component {
     )
   }
 
+  renderSessions = () => {
+    
+  }
+
 
   render() {
     const { classes } = this.props;
@@ -163,40 +154,15 @@ class PermanentDrawerLeft extends React.Component {
             {this.renderPatients()}
           </List>
           <List id='sessions' hidden={false}>
-            {['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon> <PersonIcon /></ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))
-          }
-        </List> */}
-        <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={this.updateId}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <ArrowBackIosIcon />
-          </IconButton>
-        <List>
-          {['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'].map((text, index) => (
-            <ListItem button key={text} onClick={this.updateId}>
-              <ListItemIcon> <PersonIcon /></ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+            {}
         </List>
         <Divider />
       </Drawer>
-      { <main className={classes.content}>
+       <main className={classes.content}>
             {this.state.opened == 'Home' && <HomePage />}
             {this.state.opened == 'Patients' && <h1 className='filler'> Click a patient to view their summaries! </h1>}
             {this.state.opened == 'Sessions' && < SessionStatistics />}
-        </main>}
+        </main>
     </div>
   );
 
