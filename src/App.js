@@ -6,6 +6,7 @@ import { BrowserRouter,
   Link } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
+import ListPage from './pages/ListPage';
 
 function App() {
   return (
@@ -36,9 +37,9 @@ function App() {
           </li>
         */}
 
-        <hr />
+        {/* <hr /> */}
         <Switch>
-          <Route path="/" component={Home}/>
+          <Route path="/" component={ListPage}/>
         </Switch>
       </div>
     </BrowserRouter>
