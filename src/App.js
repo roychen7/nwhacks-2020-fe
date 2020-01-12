@@ -6,6 +6,7 @@ import { BrowserRouter,
   Link } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
+import PatientsDrawer from './components/PatientsDrawer';
 import PermanentDrawerLeft from './pages/PermanentDrawerLeft';
 
 function App() {
@@ -28,18 +29,9 @@ function App() {
     // </div>
     <BrowserRouter>
       <div>
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        */}
-
-        {/* <hr /> */}
         <Switch>
           <Route path="/" component={PermanentDrawerLeft}/>
+          <Route path="/home" component={Home}/>
         </Switch>
       </div>
     </BrowserRouter>
