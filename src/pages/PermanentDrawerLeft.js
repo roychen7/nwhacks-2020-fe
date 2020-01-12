@@ -15,8 +15,8 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import './PermanentDrawerLeft.css'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
-import SessionStatistics from './SessionStatistics'
-
+import HomePage from './HomePage'
+import SessionStatistics from './SessionStatistics';
 const drawerWidth = 240;
 
 const useStyles = theme => ({
@@ -78,8 +78,24 @@ class PermanentDrawerLeft extends React.Component {
     super(props);
     this.state = {
       id: 1,
-      open: 'home'
+      open: false,
+      setOpen: false,
+      opened: 'Home',
+      currOpenedSession: null,
     }
+    // patients and session array objects 
+    // patients is: 
+    //     patient id
+    // session object is:
+    //     text: [text time, text mood, sentence]
+    //     face: [face time (should be constant increments), face mood]
+    //     mostFreq: list of 5 most frequently used words in descending order
+    //     faces: list of face moods with counter of how many 
+    //     date: string 
+    //     overall score: number 
+
+    this.patients = [];
+    this.sessions = [];
   }
 
   renderHome = () => {
@@ -152,16 +168,37 @@ class PermanentDrawerLeft extends React.Component {
                 <ListItemIcon> <PersonIcon /></ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
-            ))}
-          </List>
-          <Divider />
-        </Drawer>
-        { <main className={classes.content}>
-              {/* <h1 className='filler'> Click a patient to view their summaries! </h1>  */}
-              < SessionStatistics />
-          </main>}
-      </div>
-    );
+            ))
+          }
+        </List> */}
+        <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={this.updateId}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <ArrowBackIosIcon />
+          </IconButton>
+        <List>
+          {['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'].map((text, index) => (
+            <ListItem button key={text} onClick={this.updateId}>
+              <ListItemIcon> <PersonIcon /></ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+      </Drawer>
+      { <main className={classes.content}>
+            {this.state.opened == 'Home' && <HomePage />}
+            {this.state.opened == 'Patients' && <h1 className='filler'> Click a patient to view their summaries! </h1>}
+            {this.state.opened == 'Sessions' && < SessionStatistics />}
+        </main>}
+    </div>
+  );
 
   }
 

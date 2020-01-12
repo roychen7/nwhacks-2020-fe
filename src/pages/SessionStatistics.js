@@ -44,11 +44,7 @@ class SessionStatistics extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            labels: ['Under 18', 'Age 18-54', 'Age 55+'],
-            datasets: [{
-                data: [2000, 4000, 2850], 
-                backgroundColor: ['red', 'blue', 'green']
-            }]
+            overall: false
         }
     }
 
