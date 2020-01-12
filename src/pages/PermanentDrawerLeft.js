@@ -50,6 +50,12 @@ const useStyles = theme => ({
 //   stats: //todo
 // }
 
+
+// opened is one of:
+// Home
+// Patients
+// Sessions
+
 class PermanentDrawerLeft extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +63,21 @@ class PermanentDrawerLeft extends React.Component {
       id: 1,
       open: false,
       setOpen: false,
+      opened: 'Home'
     }
+    // patients and session array objects 
+    // patients is: 
+    //     patient id
+    // session object is:
+    //     text: [text time, text mood, sentence]
+    //     face: [face time (should be constant increments), face mood]
+    //     mostFreq: list of 5 most frequently used words in descending order
+    //     faces: list of face moods with counter of how many 
+    //     date: string 
+    //     overall score: number 
+      
+    this.patients = [];
+    this.sessions = [];
   }
 
   updateId = () => {

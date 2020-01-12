@@ -14,25 +14,19 @@ import {
 
   const databar = [
     {
-      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+      name: 'Fuck', uv: 4000,
     },
     {
-      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+      name: 'Shit', uv: 3000, 
     },
     {
-      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+      name: 'Bitch', uv: 2000,
     },
     {
-      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+      name: 'asdf', uv: 2780,
     },
     {
-      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-    },
-    {
-      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-    },
-    {
-      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+      name: 'happi', uv: 1890,
     },
   ];
 
@@ -62,6 +56,9 @@ class SessionStatistics extends React.Component {
         return (
             <div>
             <Grid container>
+                <Grid xs={12}>
+                    <div style={ {margin: '50px'}}></div>
+                </Grid>
                 <Grid xs={6}>
                     <PieChart width={400} height={400}>
                         <Pie dataKey="value" isAnimationActive={false} data={data} cx={170} cy={120} outerRadius={80} fill="#8884d8" label>
