@@ -1,6 +1,7 @@
 import React from 'react';
 // import PieChart from './PieChart'
 import Grid from '@material-ui/core/Grid';
+import './SessionStatistics.css'
 
 import {
     PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend,
