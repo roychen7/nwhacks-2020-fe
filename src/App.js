@@ -6,7 +6,7 @@ import { BrowserRouter,
   Link } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-import ListPage from './pages/ListPage';
+import PermanentDrawerLeft from './pages/PermanentDrawerLeft';
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
 
         {/* <hr /> */}
         <Switch>
-          <Route path="/" component={ListPage}/>
+          <Route path="/" component={PermanentDrawerLeft}/>
         </Switch>
       </div>
     </BrowserRouter>
